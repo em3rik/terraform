@@ -1,0 +1,635 @@
+{
+    "version": 3,
+    "terraform_version": "0.11.7",
+    "serial": 251,
+    "lineage": "82f5060f-9caf-5c05-2e5a-cd7651b83bb2",
+    "modules": [
+        {
+            "path": [
+                "root"
+            ],
+            "outputs": {},
+            "resources": {},
+            "depends_on": []
+        },
+        {
+            "path": [
+                "root",
+                "common"
+            ],
+            "outputs": {
+                "vpc_id": {
+                    "sensitive": false,
+                    "type": "string",
+                    "value": "vpc-0d49816ed91a3266e"
+                }
+            },
+            "resources": {
+                "aws_default_route_table.routes-vpc": {
+                    "type": "aws_default_route_table",
+                    "depends_on": [
+                        "aws_vpc.vpc"
+                    ],
+                    "primary": {
+                        "id": "rtb-02531286d4f688fd4",
+                        "attributes": {
+                            "default_route_table_id": "rtb-02531286d4f688fd4",
+                            "id": "rtb-02531286d4f688fd4",
+                            "propagating_vgws.#": "0",
+                            "route.#": "0",
+                            "tags.%": "1",
+                            "tags.Name": "common",
+                            "vpc_id": "vpc-0d49816ed91a3266e"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_route_table_association.vpc_subnet_association.0": {
+                    "type": "aws_route_table_association",
+                    "depends_on": [
+                        "aws_subnet.vpc-subnet.*",
+                        "aws_vpc.vpc"
+                    ],
+                    "primary": {
+                        "id": "rtbassoc-0731047a19a904598",
+                        "attributes": {
+                            "id": "rtbassoc-0731047a19a904598",
+                            "route_table_id": "rtb-02531286d4f688fd4",
+                            "subnet_id": "subnet-0cc160b4e876c5551"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_route_table_association.vpc_subnet_association.1": {
+                    "type": "aws_route_table_association",
+                    "depends_on": [
+                        "aws_subnet.vpc-subnet.*",
+                        "aws_vpc.vpc"
+                    ],
+                    "primary": {
+                        "id": "rtbassoc-0ba79de0ee7cd42c5",
+                        "attributes": {
+                            "id": "rtbassoc-0ba79de0ee7cd42c5",
+                            "route_table_id": "rtb-02531286d4f688fd4",
+                            "subnet_id": "subnet-01c1dd5644c76cc2d"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_subnet.vpc-subnet.0": {
+                    "type": "aws_subnet",
+                    "depends_on": [
+                        "aws_vpc.vpc"
+                    ],
+                    "primary": {
+                        "id": "subnet-0cc160b4e876c5551",
+                        "attributes": {
+                            "assign_ipv6_address_on_creation": "false",
+                            "availability_zone": "eu-west-2a",
+                            "cidr_block": "10.10.2.0/24",
+                            "id": "subnet-0cc160b4e876c5551",
+                            "map_public_ip_on_launch": "false",
+                            "tags.%": "1",
+                            "tags.Name": "common-monitoring",
+                            "vpc_id": "vpc-0d49816ed91a3266e"
+                        },
+                        "meta": {
+                            "schema_version": "1"
+                        },
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_subnet.vpc-subnet.1": {
+                    "type": "aws_subnet",
+                    "depends_on": [
+                        "aws_vpc.vpc"
+                    ],
+                    "primary": {
+                        "id": "subnet-01c1dd5644c76cc2d",
+                        "attributes": {
+                            "assign_ipv6_address_on_creation": "false",
+                            "availability_zone": "eu-west-2b",
+                            "cidr_block": "10.10.1.0/24",
+                            "id": "subnet-01c1dd5644c76cc2d",
+                            "map_public_ip_on_launch": "false",
+                            "tags.%": "1",
+                            "tags.Name": "common-util",
+                            "vpc_id": "vpc-0d49816ed91a3266e"
+                        },
+                        "meta": {
+                            "schema_version": "1"
+                        },
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_vpc.vpc": {
+                    "type": "aws_vpc",
+                    "depends_on": [],
+                    "primary": {
+                        "id": "vpc-0d49816ed91a3266e",
+                        "attributes": {
+                            "assign_generated_ipv6_cidr_block": "false",
+                            "cidr_block": "10.10.0.0/16",
+                            "default_network_acl_id": "acl-04b0510f8e3288249",
+                            "default_route_table_id": "rtb-02531286d4f688fd4",
+                            "default_security_group_id": "sg-0e4fe16c887b78cc9",
+                            "dhcp_options_id": "dopt-9d9f22f5",
+                            "enable_dns_hostnames": "true",
+                            "enable_dns_support": "true",
+                            "id": "vpc-0d49816ed91a3266e",
+                            "instance_tenancy": "default",
+                            "main_route_table_id": "rtb-02531286d4f688fd4",
+                            "tags.%": "1",
+                            "tags.Name": "common"
+                        },
+                        "meta": {
+                            "schema_version": "1"
+                        },
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                }
+            },
+            "depends_on": []
+        },
+        {
+            "path": [
+                "root",
+                "dinamo"
+            ],
+            "outputs": {
+                "vpc_id": {
+                    "sensitive": false,
+                    "type": "string",
+                    "value": "vpc-0b84e9fd95583c7c6"
+                }
+            },
+            "resources": {
+                "aws_default_route_table.routes-vpc": {
+                    "type": "aws_default_route_table",
+                    "depends_on": [
+                        "aws_vpc.vpc"
+                    ],
+                    "primary": {
+                        "id": "rtb-00bcf9f0fbf21995e",
+                        "attributes": {
+                            "default_route_table_id": "rtb-00bcf9f0fbf21995e",
+                            "id": "rtb-00bcf9f0fbf21995e",
+                            "propagating_vgws.#": "0",
+                            "route.#": "0",
+                            "tags.%": "1",
+                            "tags.Name": "dinamo",
+                            "vpc_id": "vpc-0b84e9fd95583c7c6"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_route_table_association.vpc_subnet_association": {
+                    "type": "aws_route_table_association",
+                    "depends_on": [
+                        "aws_subnet.vpc-subnet.*",
+                        "aws_vpc.vpc"
+                    ],
+                    "primary": {
+                        "id": "rtbassoc-058a910602ea53c8a",
+                        "attributes": {
+                            "id": "rtbassoc-058a910602ea53c8a",
+                            "route_table_id": "rtb-00bcf9f0fbf21995e",
+                            "subnet_id": "subnet-01ff8d7e62109b2b7"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_subnet.vpc-subnet": {
+                    "type": "aws_subnet",
+                    "depends_on": [
+                        "aws_vpc.vpc"
+                    ],
+                    "primary": {
+                        "id": "subnet-01ff8d7e62109b2b7",
+                        "attributes": {
+                            "assign_ipv6_address_on_creation": "false",
+                            "availability_zone": "eu-west-2a",
+                            "cidr_block": "10.12.1.0/24",
+                            "id": "subnet-01ff8d7e62109b2b7",
+                            "map_public_ip_on_launch": "false",
+                            "tags.%": "1",
+                            "tags.Name": "dinamo-dev",
+                            "vpc_id": "vpc-0b84e9fd95583c7c6"
+                        },
+                        "meta": {
+                            "schema_version": "1"
+                        },
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_vpc.vpc": {
+                    "type": "aws_vpc",
+                    "depends_on": [],
+                    "primary": {
+                        "id": "vpc-0b84e9fd95583c7c6",
+                        "attributes": {
+                            "assign_generated_ipv6_cidr_block": "false",
+                            "cidr_block": "10.12.0.0/16",
+                            "default_network_acl_id": "acl-08dc4bd78c70ba148",
+                            "default_route_table_id": "rtb-00bcf9f0fbf21995e",
+                            "default_security_group_id": "sg-0f17294e11aee34df",
+                            "dhcp_options_id": "dopt-9d9f22f5",
+                            "enable_dns_hostnames": "true",
+                            "enable_dns_support": "true",
+                            "id": "vpc-0b84e9fd95583c7c6",
+                            "instance_tenancy": "default",
+                            "main_route_table_id": "rtb-00bcf9f0fbf21995e",
+                            "tags.%": "1",
+                            "tags.Name": "dinamo"
+                        },
+                        "meta": {
+                            "schema_version": "1"
+                        },
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                }
+            },
+            "depends_on": []
+        },
+        {
+            "path": [
+                "root",
+                "transit"
+            ],
+            "outputs": {
+                "vpc_id": {
+                    "sensitive": false,
+                    "type": "string",
+                    "value": "vpc-0e49f729ab2dc23f8"
+                }
+            },
+            "resources": {
+                "aws_internet_gateway.vpc-igw": {
+                    "type": "aws_internet_gateway",
+                    "depends_on": [
+                        "aws_vpc.vpc"
+                    ],
+                    "primary": {
+                        "id": "igw-07330d4c866b1e302",
+                        "attributes": {
+                            "id": "igw-07330d4c866b1e302",
+                            "tags.%": "1",
+                            "tags.Name": "transit",
+                            "vpc_id": "vpc-0e49f729ab2dc23f8"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_main_route_table_association.default_route_subnet_association": {
+                    "type": "aws_main_route_table_association",
+                    "depends_on": [
+                        "aws_route_table.igw-route",
+                        "aws_vpc.vpc"
+                    ],
+                    "primary": {
+                        "id": "rtbassoc-0d3df51e06167c5dc",
+                        "attributes": {
+                            "id": "rtbassoc-0d3df51e06167c5dc",
+                            "original_route_table_id": "rtb-0826ebb123052ec73",
+                            "route_table_id": "rtb-000efe1fd3de7d74f",
+                            "vpc_id": "vpc-0e49f729ab2dc23f8"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_route_table.igw-route": {
+                    "type": "aws_route_table",
+                    "depends_on": [
+                        "aws_internet_gateway.vpc-igw",
+                        "aws_vpc.vpc"
+                    ],
+                    "primary": {
+                        "id": "rtb-000efe1fd3de7d74f",
+                        "attributes": {
+                            "id": "rtb-000efe1fd3de7d74f",
+                            "propagating_vgws.#": "0",
+                            "route.#": "1",
+                            "route.1277648968.cidr_block": "0.0.0.0/0",
+                            "route.1277648968.egress_only_gateway_id": "",
+                            "route.1277648968.gateway_id": "igw-07330d4c866b1e302",
+                            "route.1277648968.instance_id": "",
+                            "route.1277648968.ipv6_cidr_block": "",
+                            "route.1277648968.nat_gateway_id": "",
+                            "route.1277648968.network_interface_id": "",
+                            "route.1277648968.vpc_peering_connection_id": "",
+                            "tags.%": "1",
+                            "tags.Name": "transit",
+                            "vpc_id": "vpc-0e49f729ab2dc23f8"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_route_table_association.igw_subnet_association.0": {
+                    "type": "aws_route_table_association",
+                    "depends_on": [
+                        "aws_route_table.igw-route",
+                        "aws_subnet.vpc-subnet.*"
+                    ],
+                    "primary": {
+                        "id": "rtbassoc-03fb8e447ff80806c",
+                        "attributes": {
+                            "id": "rtbassoc-03fb8e447ff80806c",
+                            "route_table_id": "rtb-000efe1fd3de7d74f",
+                            "subnet_id": "subnet-02b9c500a84f9d6ea"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_route_table_association.igw_subnet_association.1": {
+                    "type": "aws_route_table_association",
+                    "depends_on": [
+                        "aws_route_table.igw-route",
+                        "aws_subnet.vpc-subnet.*"
+                    ],
+                    "primary": {
+                        "id": "rtbassoc-05b1745ddd9e4179e",
+                        "attributes": {
+                            "id": "rtbassoc-05b1745ddd9e4179e",
+                            "route_table_id": "rtb-000efe1fd3de7d74f",
+                            "subnet_id": "subnet-02b558394d30b164a"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_subnet.vpc-subnet.0": {
+                    "type": "aws_subnet",
+                    "depends_on": [
+                        "aws_vpc.vpc"
+                    ],
+                    "primary": {
+                        "id": "subnet-02b9c500a84f9d6ea",
+                        "attributes": {
+                            "assign_ipv6_address_on_creation": "false",
+                            "availability_zone": "eu-west-2a",
+                            "cidr_block": "10.1.1.0/24",
+                            "id": "subnet-02b9c500a84f9d6ea",
+                            "map_public_ip_on_launch": "false",
+                            "tags.%": "1",
+                            "tags.Name": "transit-private1",
+                            "vpc_id": "vpc-0e49f729ab2dc23f8"
+                        },
+                        "meta": {
+                            "schema_version": "1"
+                        },
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_subnet.vpc-subnet.1": {
+                    "type": "aws_subnet",
+                    "depends_on": [
+                        "aws_vpc.vpc"
+                    ],
+                    "primary": {
+                        "id": "subnet-02b558394d30b164a",
+                        "attributes": {
+                            "assign_ipv6_address_on_creation": "false",
+                            "availability_zone": "eu-west-2b",
+                            "cidr_block": "10.1.2.0/24",
+                            "id": "subnet-02b558394d30b164a",
+                            "map_public_ip_on_launch": "false",
+                            "tags.%": "1",
+                            "tags.Name": "transit-private2",
+                            "vpc_id": "vpc-0e49f729ab2dc23f8"
+                        },
+                        "meta": {
+                            "schema_version": "1"
+                        },
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_vpc.vpc": {
+                    "type": "aws_vpc",
+                    "depends_on": [],
+                    "primary": {
+                        "id": "vpc-0e49f729ab2dc23f8",
+                        "attributes": {
+                            "assign_generated_ipv6_cidr_block": "false",
+                            "cidr_block": "10.1.0.0/16",
+                            "default_network_acl_id": "acl-02263cdb2f900c690",
+                            "default_route_table_id": "rtb-000efe1fd3de7d74f",
+                            "default_security_group_id": "sg-0cfa9d6881b788d8a",
+                            "dhcp_options_id": "dopt-9d9f22f5",
+                            "enable_dns_hostnames": "true",
+                            "enable_dns_support": "true",
+                            "id": "vpc-0e49f729ab2dc23f8",
+                            "instance_tenancy": "default",
+                            "main_route_table_id": "rtb-000efe1fd3de7d74f",
+                            "tags.%": "1",
+                            "tags.Name": "transit"
+                        },
+                        "meta": {
+                            "schema_version": "1"
+                        },
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                }
+            },
+            "depends_on": []
+        },
+        {
+            "path": [
+                "root",
+                "zagreb"
+            ],
+            "outputs": {
+                "vpc_id": {
+                    "sensitive": false,
+                    "type": "string",
+                    "value": "vpc-0daf5edfcf45a7bcb"
+                }
+            },
+            "resources": {
+                "aws_default_route_table.routes-vpc": {
+                    "type": "aws_default_route_table",
+                    "depends_on": [
+                        "aws_vpc.vpc"
+                    ],
+                    "primary": {
+                        "id": "rtb-0fc312c73e81a5019",
+                        "attributes": {
+                            "default_route_table_id": "rtb-0fc312c73e81a5019",
+                            "id": "rtb-0fc312c73e81a5019",
+                            "propagating_vgws.#": "0",
+                            "route.#": "0",
+                            "tags.%": "1",
+                            "tags.Name": "zagreb-test",
+                            "vpc_id": "vpc-0daf5edfcf45a7bcb"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_route_table_association.vpc_subnet_association.0": {
+                    "type": "aws_route_table_association",
+                    "depends_on": [
+                        "aws_subnet.vpc-subnet.*",
+                        "aws_vpc.vpc"
+                    ],
+                    "primary": {
+                        "id": "rtbassoc-03814db4e3f7f6efc",
+                        "attributes": {
+                            "id": "rtbassoc-03814db4e3f7f6efc",
+                            "route_table_id": "rtb-0fc312c73e81a5019",
+                            "subnet_id": "subnet-0c66d4627257ece89"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_route_table_association.vpc_subnet_association.1": {
+                    "type": "aws_route_table_association",
+                    "depends_on": [
+                        "aws_subnet.vpc-subnet.*",
+                        "aws_vpc.vpc"
+                    ],
+                    "primary": {
+                        "id": "rtbassoc-00400d1b3e764f2f9",
+                        "attributes": {
+                            "id": "rtbassoc-00400d1b3e764f2f9",
+                            "route_table_id": "rtb-0fc312c73e81a5019",
+                            "subnet_id": "subnet-0bebb0890796f5953"
+                        },
+                        "meta": {},
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_subnet.vpc-subnet.0": {
+                    "type": "aws_subnet",
+                    "depends_on": [
+                        "aws_vpc.vpc"
+                    ],
+                    "primary": {
+                        "id": "subnet-0c66d4627257ece89",
+                        "attributes": {
+                            "assign_ipv6_address_on_creation": "false",
+                            "availability_zone": "eu-west-2a",
+                            "cidr_block": "10.13.1.0/24",
+                            "id": "subnet-0c66d4627257ece89",
+                            "map_public_ip_on_launch": "false",
+                            "tags.%": "1",
+                            "tags.Name": "dinamo-dev",
+                            "vpc_id": "vpc-0daf5edfcf45a7bcb"
+                        },
+                        "meta": {
+                            "schema_version": "1"
+                        },
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_subnet.vpc-subnet.1": {
+                    "type": "aws_subnet",
+                    "depends_on": [
+                        "aws_vpc.vpc"
+                    ],
+                    "primary": {
+                        "id": "subnet-0bebb0890796f5953",
+                        "attributes": {
+                            "assign_ipv6_address_on_creation": "false",
+                            "availability_zone": "eu-west-2b",
+                            "cidr_block": "10.13.2.0/24",
+                            "id": "subnet-0bebb0890796f5953",
+                            "map_public_ip_on_launch": "false",
+                            "tags.%": "1",
+                            "tags.Name": "dinamo-test",
+                            "vpc_id": "vpc-0daf5edfcf45a7bcb"
+                        },
+                        "meta": {
+                            "schema_version": "1"
+                        },
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                },
+                "aws_vpc.vpc": {
+                    "type": "aws_vpc",
+                    "depends_on": [],
+                    "primary": {
+                        "id": "vpc-0daf5edfcf45a7bcb",
+                        "attributes": {
+                            "assign_generated_ipv6_cidr_block": "false",
+                            "cidr_block": "10.13.0.0/16",
+                            "default_network_acl_id": "acl-0dfbd0d62c64ad40e",
+                            "default_route_table_id": "rtb-0fc312c73e81a5019",
+                            "default_security_group_id": "sg-0373835f6039b2638",
+                            "dhcp_options_id": "dopt-9d9f22f5",
+                            "enable_dns_hostnames": "true",
+                            "enable_dns_support": "true",
+                            "id": "vpc-0daf5edfcf45a7bcb",
+                            "instance_tenancy": "default",
+                            "main_route_table_id": "rtb-0fc312c73e81a5019",
+                            "tags.%": "1",
+                            "tags.Name": "zagreb-test"
+                        },
+                        "meta": {
+                            "schema_version": "1"
+                        },
+                        "tainted": false
+                    },
+                    "deposed": [],
+                    "provider": "provider.aws"
+                }
+            },
+            "depends_on": []
+        }
+    ]
+}
