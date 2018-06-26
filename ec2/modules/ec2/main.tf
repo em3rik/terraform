@@ -1,15 +1,5 @@
 #### Basic EC2 resources ###
 
-#data "terraform_remote_state" "vpc" {
-#  backend = "s3"
-#
-#  config {
-#    bucket = "intis-terraform-tfstate"
-#    key    = "network/terraform.tfstate"
-#    region = "eu-west-2"
-#  }
-#}
-
 data "aws_vpc" "selected" {
   tags {
     Name = "${var.vpc_name}"

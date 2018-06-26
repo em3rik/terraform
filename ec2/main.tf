@@ -1,6 +1,6 @@
 terraform {
   backend "s3" {
-    bucket  = "intis-terraform-tfstate"
+    bucket  = "terraform-tfstate"
     region  = "eu-west-2"
     key     = "ec2/terraform.tfstate"
     encrypt = true
@@ -44,4 +44,3 @@ module "ansible-test" {
 
   #  elastic_ip        = "true"
 }
-
