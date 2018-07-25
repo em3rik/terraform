@@ -20,13 +20,13 @@ resource "aws_security_group" "security_group" {
 }
 
 resource "aws_security_group_rule" "default_ingress" {
-  count             = "${length(var.ports)}"
+  count             = "${length(keys(var.rules))}"
   type              = "ingress"
   security_group_id = "${aws_security_group.security_group.id}"
-  from_port         = "${element(var.ports, count.index)}"
-  to_port           = "${element(var.ports, count.index)}"
+  from_port         = "${element(split("-",element(values(var.rules),count.index)),0)}"
+  to_port           = "${element(split("-",element(values(var.rules),count.index)),1)}"
   protocol          = "${var.protocol}"
-  cidr_blocks       = ["${var.cidr_blocks}"]
+  cidr_blocks       = ["${element(keys(var.rules),count.index)}"]
 }
 
 resource "aws_security_group_rule" "allow_all_outbound" {

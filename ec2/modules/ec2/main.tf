@@ -1,5 +1,4 @@
 #### Basic EC2 resources ###
-
 data "aws_vpc" "selected" {
   tags {
     Name = "${var.vpc_name}"

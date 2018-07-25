@@ -1,0 +1,27 @@
+
+Error: module "openvpn_nlb": "min_size" is not a valid argument
+
+
+
+Error: module "openvpn_nlb": "desired_capacity" is not a valid argument
+
+
+
+Error: module "openvpn_nlb": "max_size" is not a valid argument
+
+
+
+Error: module "openvpn_nlb": "env" is not a valid argument
+
+
+
+Error: module "openvpn_nlb": "subnet_names" is not a valid argument
+
+
+
+Error: module "openvpn_nlb": "lb_type" is not a valid argument
+
+
+
+Error: module "openvpn_nlb": "lb_name" is not a valid argument
+
